@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAT Service Activation Project (Smoke Test)</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="css2.css?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <!-- إضافة مكتبة Highcharts -->
+    <script src="highcharts.js"></script>
+    <script src="highcharts-3d.js"></script>
+    <script src="exporting.js"></script>
+</head>
+<body>
+    <!-- إضافة شعار الشركة -->
+    <div class="header">
+        <img src="logo.png" alt="Company Logo" class="logo">
+        <div class="last-update">
+            Last update: 30/08/2024- 12:00 PM
+            <br>
+            <span id="current-time"></span> <!-- عنصر لعرض الوقت الحالي -->
+        </div>
+    </div>
+
+    <!-- العنوان الرئيسي في المنتصف -->
+    <h1>UAT Service Activation Project (Smoke Test)</h1>
+        <!-- تحذير صغير مع عداد تحت العنوان الرئيسي وعلى اليسار -->
+    <div id="warning-button" class="warning-small hidden" onclick="scrollToDefects()">
+        Showstopper: <span id="defect-count">0</span>
+    </div>
+
+    <!-- إضافة مكان لرسالة التحذير -->
+    <div id="warning-message" class="warning hidden">
+        There is an issue with the data. Please check the source.
+    </div>
+
+    <div class="section">
+        <h2 class="center-title">Go / No Go Smoke Scope</h2>
+                <h2 class="center-title">25% From Over All Smoke Scope</h2>
+
+        <div id="donutChart" class="chart"></div>
+    </div>
+    
+
+
+    <!-- باقي المحتوى كما هو -->
+    <div class="section">
+        <h2 class="center-title">Part 1 : order Fulfillment Cycle Scope</h2>
+        <div class="chart-container">
+            <div id="stackedColumnChartBSS" class="chart"></div>
+            <div id="pieChartBSS" class="chart"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="center-title">Part 2 : other ISP Scope</h2>
+        <div class="chart-container">
+            <div id="pieChartSanity" class="chart"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="center-title">Part3 : Consumption Fraud Scope</h2>
+        <div class="chart-container">
+
+            <div id="pieChartRA" class="chart"></div>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <h2 class="center-title">Part4 : Sanity Scope</h2>
+        <div class="chart-container">
+            <div id="stackedColumnChartSanityScope" class="chart"></div>
+
+            <div id="pieChartSaS" class="chart"></div>
+        </div>
+    </div>
+
+
+    <!-- إضافة جدول التحذيرات في الأسفل -->
+    <div id="defect-details" class="defect-details hidden">
+        <h2>Defect Showstopper Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Severity</th>
+                    <th>Status</th>
+                    <th>Initiation Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kayan</td>
+                    <td>Issue Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, cumque! Creation Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, maiores!</td>
+                    <td>High</td>
+                    <td>Open</td>
+                    <td>10:00 AM</td>
+                </tr>
+                <tr>
+                    <td>Sherouk</td>
+                    <td>Issue Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, cumque! Creation Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, maiores!</td>
+                    <td>High</td>
+                    <td>Open</td>
+                    <td>11:00 AM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="Detailed.xlsx" download="">
+            <button style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Download Excel File</button>
+        </a>
+    </div>
+    <button id="scrollToTopBtn" class="scroll-to-top">Top</button>
+
+    <!-- رسالة حقوق الطبع والنشر -->
+    <footer class="footer">
+        Developed by UAT Automation Team
+    </footer>
+
+    <!-- تضمين مكتبة XLSX.js لتحليل بيانات Excel -->
+    <script src="xlsx.full.min.js"></script>
+    <!-- تضمين ملف JavaScript الخاص بك -->
+    <script src="script.js?v=<?php echo time(); ?>"></script>
+
+
+</body>
+</html>

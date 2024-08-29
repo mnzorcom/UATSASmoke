@@ -1,0 +1,239 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f0f5;
+    color: #333;
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4b0082;
+    padding: 10px 20px;
+    color: white;
+    position: relative;
+}
+
+.logo {
+    height: 50px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.last-update {
+    font-size: 14px;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    color: #4b0082;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.section {
+    margin-bottom: 40px;
+    flex: 1;
+}
+
+.center-title {
+    text-align: center;
+    color: #4b0082;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.warning-small {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: 2px solid red;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 0 5px 20px;
+    width: fit-content;
+    animation: flash 1s infinite;
+}
+
+.warning {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 5px 20px;
+    border: 2px solid red;
+    border-radius: 5px;
+    animation: flash 1s infinite;
+    width: fit-content;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.chart-container {
+    display: flex;
+    flex-wrap: wrap; /* يسمح بتغيير ترتيب العناصر لتناسب الشاشة */
+    justify-content: center; /* مركز العناصر داخل الحاوية */
+    align-items: flex-start;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* تأكد من أن الحاوية تمتد بالكامل داخل العنصر الأب */
+    box-sizing: border-box; /* لضمان أن padding وborder لا تؤثر على العرض الكلي */
+}
+
+.chart {
+    width: 100%; /* جعل الرسوم البيانية تأخذ كامل عرض الحاوية */
+    max-width: 600px; /* تحديد الحد الأقصى للعرض لتفادي التمدد الزائد */
+    height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+    margin: 0 auto;
+}
+
+canvas {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 600px;
+    margin: 0 auto;
+}
+
+.defect-details {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.defect-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.defect-details th, .defect-details td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #4b0082;
+    color: white;
+    margin-top: auto;
+    width: 100%;
+    font-size: 14px;
+}
+
+th {
+    background-color: red;
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+   
+    .chart-container {
+        flex-direction: column; /* ترتيب العناصر في عمود */
+        align-items: center; /* مركز العناصر داخل الحاوية */
+        width: 100%; /* تأكد من أن الحاوية تمتد بالكامل داخل العنصر الأب */
+        padding: 0; /* إزالة الحواف لتكبير الرسوم البيانية */
+        margin: 0 auto; /* توسيط الحاوية */
+    }
+
+    .chart {
+        width: 100% !important; /* جعل الرسوم البيانية تأخذ كامل عرض الحاوية */
+        height: auto !important; /* الحفاظ على نسبة العرض إلى الارتفاع */
+        margin-bottom: 20px; /* مسافة صغيرة أسفل كل رسم بياني */
+    }
+
+    svg {
+        width: 100% !important; /* جعل الـ SVG يأخذ العرض الكامل */
+        height: auto !important; /* الحفاظ على نسبة العرض إلى الارتفاع */
+    }
+
+    path {
+        transform: scale(1.2); /* تكبير المسار لتحسين الرؤية */
+        transform-origin: center; /* تأكد من أن التكبير يتم من المركز */
+    }
+
+
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Hide button initially */
+    background-color: #4b0082; /* Adjust color as needed */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
+
+.scroll-to-top:hover {
+    background-color: #2e0047; /* Darker shade on hover */
+}
+
+@media (min-width: 1400px) {
+    /* تنسيق الأقسام الثلاثة لتكون جنبًا إلى جنب */
+    .section {
+        flex: 1; /* كل قسم يأخذ مساحة متساوية */
+        margin: 0; /* إزالة المسافات الجانبية لتجنب الفجوات الكبيرة */
+        padding: 10px; /* إضافة بعض الحشو لجعل المحتوى يبدو منظمًا */
+        border-right: 1px solid #ddd; /* خط فاصل بسيط بين الأقسام */
+    }
+
+    /* إزالة الخط الفاصل من القسم الأخير */
+    .section:last-child {
+        border-right: none;
+    }
+
+    /* إخفاء زر التحميل على الشاشات الكبيرة */
+    .download-button {
+        display: none;
+    }
+
+    .chart-container {
+        flex-direction: row; /* ترتيب الرسوم البيانية جنبًا إلى جنب */
+        justify-content: space-between; /* توزيع العناصر بالتساوي بين الحاويات */
+    }
+
+    .chart {
+        max-width: 30%; /* جعل الرسوم البيانية تأخذ 30% من عرض الحاوية الأب */
+        height: auto;
+    }
+}
